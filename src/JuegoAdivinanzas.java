@@ -10,12 +10,13 @@ public class JuegoAdivinanzas {
 
         while (jugarDeNuevo) {
             int numeroAdivinar = random.nextInt(101); // Generar número aleatorio entre 0 y 100
-            int intentos = 0;
+            int intentos = 5;
 
             System.out.println("Bienvenido al juego de adivinanzas. Debes adivinar un número entre 0 y 100.");
 
-            while (intentos < 5) {
-                System.out.println("Intento #" + (intentos + 1) + ": Ingresa tu número:");
+            while (intentos > 0) {
+                System.out.println("Tienes " + intentos + " intentos restantes.");
+                System.out.println("Ingresa tu número:");
                 int numeroUsuario = teclado.nextInt();
 
                 if (numeroUsuario == numeroAdivinar) {
@@ -27,10 +28,10 @@ public class JuegoAdivinanzas {
                     System.out.println("El número a adivinar es menor.");
                 }
 
-                intentos++;
+                intentos--;
             }
 
-            if (intentos == 5) {
+            if (intentos == 0) {
                 System.out.println("¡Lo siento! Has agotado tus 5 intentos. El número a adivinar era: " + numeroAdivinar);
             }
 
